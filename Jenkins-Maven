@@ -1,0 +1,38 @@
+####################################
+#######update auto increment for pom version ###################
+########################################
+version=$(grep -ri "<version>" pom.xml |head -n 1 | sed -e 's/^[ \t]*<version>\([^<]*\)<.*$/\1/')
+major=$(echo $version | cut -c5)
+miner=$(echo $version | cut -c7)
+bug=$(echo $version | cut -c9)
+var2=$(echo $version | cut -c6)
+var4=$(echo $version | cut -c8)
+major=$((major+1))
+#miner=$((miner+1))
+#bug=$((bug+1))
+str="REL-"
+updatedVersion=$str$major$var2$miner$var4$bug
+echo $updatedVersion
+
+###########################################################
+
+
+###############################################
+by maven plugins
+###############################################
+mvn versions:set -DnewVersions=0.0.1
+
+mvn build-helper:parse-version versions:set \
+     -DnewVersion=\${parsedVersion.nextMajorVersion}.0.0 \
+     versions:commit
+	 
+mvn build-helper:parse-version versions:set \
+ -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.nextMinorVersion}.0 \
+ versions:commit
+ 
+mvn build-helper:parse-version versions:set \
+ -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion} \
+ versions:commit
+ 
+ 
+ ##########################################################
