@@ -22,3 +22,10 @@ curl -g -X POST -u "svc-vrex-automation:${GIT_TOKEN}" -d '{"body":"NEXTGEN TEST 
  1091  sed 's/\//' text3.txt
  1092  sed 's/"\"//g' text3.txt
  1093  history
+
+ sed "s/\"/'/g" sampleJson.txt > test1.txt
+ 1116  sed 's/^/"/' text2.txt > text3.txt
+ 1117   sed 's/^/"/' test1.txt > test2.txt
+ 1118  sed 's/$/"/' test2.txt > test3.txt
+ 1119  sed 's/\\//g' test3.txt > test4.txt
+ 1120  NEXTGENSTATUS=$(<test4.txt)
