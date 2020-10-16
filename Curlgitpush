@@ -11,3 +11,14 @@ curl -g -X POST -u "svc-vrex-automation:${GIT_TOKEN}" -d '{"body":"NEXTGEN TEST 
 ##################to log file#################################################
 [INFO] Results: [INFO] [ERROR] Failures: [ERROR] NextGenHfFailureCaseIT.testARFailureWhenARSMissing:86 expected:<[Action Resolution Error.]> but was:<[{"error_message":"VSPException vspError=Returning Agent Dispatcher Exception message=httpCode=2001 text=\"Show me the guide message= VrexCommonHttpException[ httpCode=2001, message='java.net.UnknownHostException: agent-dispatcher: Name or service not known', body='null', trx='5a6f8b08-fd5b-4585-81fe-d1392cc73243'] url=http://agent-dispatcher:8190/agent-dispatcher/run-dispatcher?trx=5a6f8b08-fd5b-4585-81fe-d1392cc73243&filter=SR%2CNLP%2CEVENT%2CAR%2CEXEC errorCode=2005 trx=5a6f8b08-fd5b-4585-81fe-d1392cc73243","code":2005,"trx_sudo":"5a6f8b08-fd5b-4585-81fe-d1392cc73243","trx":"5a6f8b08-fd5b-4585-81fe-d1392cc73243","message":"Returning Agent Dispatcher Exception"}]> [ERROR] NextGenHfFailureCaseIT.testCloseMicReceivedWhenNlpResponseDoesNotIncludeRenderingPlatformForHF:177 expected:<[Action Resolution Error.]> but was:<[{"error_message":"VSPException vspError=Returning Agent Dispatcher Exception message=httpCode=2001 text=\"Go right message= VrexCommonHttpException[ httpCode=2001, message='java.net.UnknownHostException: agent-dispatcher', body='null',"trx":"f0fff7ed-6061-468a-9f1b-cb604c9e6943","message":"Returning Agent Dispatcher Exception"}]> [ERROR] NextGenHfHappyPathIT.testGoogleAsTranscriptionSourceDoesNotReturnNullSR:112 [ERROR] NextGenHfHappyPathIT.testHappyPathFile1:69 [ERROR] NextGenHfHappyPathIT.testHappyPathFile2:82 [ERROR] NextGenHfHappyPathIT.testHappyPathFile3:95 [ERROR] NextGenHfHappyPathIT.testPushToTalkSession:129 [ERROR] NextGenHfHappyPathIT.testPushToTalkSessionWithGoogleAsTranscriptionSource:147 [ERROR] NextGenPttIT.hboCacheHit:71 Expecting: <2005> to be equal to: <0> but was not. [ERROR] NextGenPttIT.netflix:59 Expecting: <2005> to be equal to: <0> but was not. [ERROR] NextGenPttIT.textGameOfThrones:89 [ERROR] NextGenSkyIT.hfSkyHappyPath:76 [ERROR] NextGenSkyIT.hfSkyTriggeredByPtt:89 [ERROR] NextGenSkyIT.pttSkyHappyPath:64 [INFO] [ERROR] Tests run: 23, Failures: 14, Errors: 0, Skipped: 0
 
+ sed "s/\"/'/g" sampleJson.txt >> test1.txt
+ 1084  cat test1.txt
+ 1085  sed 's/^/{"/' text2.txt >> text3.txt
+ 1086  sed 's/^/{"/' test2.txt >> text3.txt
+ 1087  sed 's/^/{"/' test1.txt >> test2.txt
+ 1088  sed 's/$/"}/' text2.txt >> text3.txt
+ 1089  sed 's/$/"}/' test2.txt >> text3.txt
+ 1090  cat text3.txt
+ 1091  sed 's/\//' text3.txt
+ 1092  sed 's/"\"//g' text3.txt
+ 1093  history
